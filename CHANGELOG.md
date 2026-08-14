@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.12.0] - 2026-08-14
+
+### Added
+
+- **阶段 1 来源 I：代码**（方案 A）
+  - 支持限定**目录/文件路径**和/或 **git diff** 作为输入，可与文字需求、设计稿组合
+  - 新增 `scan_code_scope.py`：强制范围、列清单与摘录、轻量线索；输出扫描稿供分析
+  - 确认稿增加「代码分析」「需求与代码差异」「输入完备性·代码」行
+  - 准备文档增加「代码要素」；阶段 3 须覆盖已确认代码点
+  - 增量 B2 同样支持代码/diff 作为变更输入
+
+### Changed
+
+- testcase-creator **1.12.0**
+- 来源列表由 A–H 扩展为 **A–I**；禁止无范围全仓扫描；不生成自动化测试代码
+
+### Docs
+
+- `input-and-generation.md` / `prompt.md` / `change-workflow.md` / README / TESTCASE_GUIDE
+
 ## [1.11.0] - 2026-08-14
 
 ### Added

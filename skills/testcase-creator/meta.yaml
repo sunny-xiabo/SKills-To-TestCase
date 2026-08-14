@@ -1,6 +1,6 @@
 name: testcase-creator
-description: "结合文字需求、文档与设计稿导出文件分析，支持全量新建与增量变更（补/改/废），检查点推荐与历史复用，评审迭代与多平台导出（Jira CSV / Excel / XMind）"
-version: "1.11.0"
+description: "结合文字需求、文档、设计稿与代码范围分析，支持全量新建与增量变更（补/改/废），检查点推荐与历史复用，评审迭代与多平台导出（Jira CSV / Excel / XMind）"
+version: "1.12.0"
 
 platforms:
   claude:

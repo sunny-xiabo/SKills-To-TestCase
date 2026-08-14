@@ -288,6 +288,7 @@ $SettingsContent = @"
       "Bash(python3 .testcase-assets/scripts/gate_stage.py *)",
       "Bash(python3 .testcase-assets/scripts/recommend_checkpoints.py *)",
       "Bash(python3 .testcase-assets/scripts/recommend_history.py *)",
+      "Bash(python3 .testcase-assets/scripts/scan_code_scope.py *)",
       "Bash(python3 .testcase-assets/scripts/md_to_json.py .testcase-assets/history/*/2-用例定稿.md .testcase-assets/history/*/export_data.json *)",
       "Bash(python3 .testcase-assets/scripts/export_all.py *)",
       "Bash(python3 .testcase-assets/scripts/merge_cases.py *)",

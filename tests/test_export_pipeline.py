@@ -118,10 +118,10 @@ class SkillContractTest(unittest.TestCase):
     def test_versions(self):
         creator = (ROOT / "skills/testcase-creator/meta.yaml").read_text(encoding="utf-8")
         export = (ROOT / "skills/testcase-export/meta.yaml").read_text(encoding="utf-8")
-        self.assertIn('version: "1.11.0"', creator)
+        self.assertIn('version: "1.12.0"', creator)
         self.assertIn('version: "1.9.0"', export)
         versions = load_module("framework_versions", SCRIPTS / "framework_versions.py")
-        self.assertEqual("1.11.0", versions.EXPECTED["testcase-creator"])
+        self.assertEqual("1.12.0", versions.EXPECTED["testcase-creator"])
         self.assertEqual("1.9.0", versions.EXPECTED["testcase-export"])
 
     def test_prompt_requires_version_check_and_merge_script(self):
@@ -135,10 +135,17 @@ class SkillContractTest(unittest.TestCase):
         self.assertIn("check_environment.py", prompt)
         self.assertIn("gate_stage.py", prompt)
         self.assertIn("recommend_checkpoints.py", prompt)
+        self.assertIn("scan_code_scope.py", prompt)
+        self.assertIn("A–I", prompt)
         self.assertIn("export_all.py", export_ref)
         self.assertIn("merge_cases.py", change)
         self.assertIn("gate_stage.py", change)
         self.assertIn("suggest_assets_from_bugs.py", prompt)
+        input_ref = (
+            ROOT / "skills/testcase-creator/references/input-and-generation.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("来源 I：代码", input_ref)
+        self.assertIn("需求与代码差异", input_ref)
 
 
 class ExcelPresentationTest(unittest.TestCase):
@@ -538,6 +545,47 @@ class VersionAndMergeTest(unittest.TestCase):
             )
             self.assertEqual(0, hist.returncode, hist.stdout + hist.stderr)
             self.assertIn("组织树", hist.stdout)
+
+    def test_scan_code_scope_requires_range_and_lists_files(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            src = temp_path / "src"
+            src.mkdir()
+            (src / "login.py").write_text(
+                "def login(user, token):\n"
+                "    if not token:\n"
+                "        raise PermissionError('401')\n"
+                "    return {'ok': True}\n",
+                encoding="utf-8",
+            )
+            out = temp_path / "scope.md"
+            # no range -> fail
+            bad = subprocess.run(
+                [sys.executable, str(SCRIPTS / "scan_code_scope.py")],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(2, bad.returncode)
+
+            ok = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "scan_code_scope.py"),
+                    "--path",
+                    str(src),
+                    "--output",
+                    str(out),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(0, ok.returncode, ok.stdout + ok.stderr)
+            text = out.read_text(encoding="utf-8")
+            self.assertIn("login.py", text)
+            self.assertIn("权限/鉴权", text)
+            self.assertIn("不是用例", text)
 
 
 if __name__ == "__main__":

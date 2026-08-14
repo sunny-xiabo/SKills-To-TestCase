@@ -126,13 +126,13 @@ class ProjectCopyCheckTest(unittest.TestCase):
         self.script_source.write_text("new-script\n", encoding="utf-8")
         extra_script = self.repo / "framework/scripts/framework_versions.py"
         extra_script.write_text(
-            'EXPECTED = {"testcase-creator": "1.11.0", "testcase-export": "1.9.0"}\n'
+            'EXPECTED = {"testcase-creator": "1.12.0", "testcase-export": "1.9.0"}\n'
             "from pathlib import Path\n"
             "from datetime import datetime\n"
             "def write_version_file(target_assets, *, synced_at=None):\n"
             "    target_assets.mkdir(parents=True, exist_ok=True)\n"
             "    path = target_assets / 'FRAMEWORK_VERSION'\n"
-            "    path.write_text('testcase-creator=1.11.0\\ntestcase-export=1.9.0\\n', encoding='utf-8')\n"
+            "    path.write_text('testcase-creator=1.12.0\\ntestcase-export=1.9.0\\n', encoding='utf-8')\n"
             "    return path\n",
             encoding="utf-8",
         )
