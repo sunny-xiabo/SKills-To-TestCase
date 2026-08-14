@@ -1,8 +1,10 @@
 # 测试用例生成指南 · TESTCASE_GUIDE.md
 
-> 适用工具：ChatGPT、GitHub Copilot Chat、Codex CLI 等无原生文件读写的纯对话工具。  
-> 使用方式：将本文件全文复制，连同检查点/评审点索引内容一起粘贴到对话开头，AI 将按流程执行。  
-> 版本对应：testcase-creator **1.12.0**（来源 I 代码范围分析；见 CHANGELOG 1.12.0）。
+> **定位：** 纯对话工具的操作说明（ChatGPT、Copilot Chat、无脚本环境的对话等）。  
+> **有 Cursor / Claude Code 且已 init 时：** 请用 `/testcase-creator`，执行细则以 Skill（`prompt.md` + `references/`）为准；本文件可作话术参考，不必与脚本命令一一对齐。  
+> **装机 / 升级 / 仓库结构：** 见仓库根目录 [README.md](README.md)。  
+> 使用方式：将本文件全文复制，连同检查点/评审点索引等一起粘贴到对话开头。  
+> 版本对应：testcase-creator **1.12.0**（见 CHANGELOG）。
 
 ---
 

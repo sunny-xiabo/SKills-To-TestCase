@@ -24,6 +24,8 @@ All notable changes to this project will be documented in this file.
 ### Docs
 
 - `input-and-generation.md` / `prompt.md` / `change-workflow.md` / README / TESTCASE_GUIDE
+- **README 瘦身**：文档地图 + 装机/升级入口；流程与导出细则改指向 Skill / GUIDE / export-workflow
+- **TESTCASE_GUIDE**：文首明确「纯对话操作」边界，有脚本环境以 Skill 为准
 
 ## [1.11.0] - 2026-08-14
 
