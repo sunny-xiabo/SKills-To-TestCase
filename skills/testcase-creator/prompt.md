@@ -90,6 +90,14 @@ python3 .testcase-assets/scripts/scan_code_scope.py \
    `.testcase-assets/history/<YYYYMMDD>_<HHMMSS>_<模块名>/`。
 8. 后续文件全部写入该运行目录；代码扫描稿可一并保留在运行目录。
 
+**来源 I 推荐用法**（详见 `input-and-generation.md`；引导用户时遵守）：
+
+1. 优先 diff 或小路径，少扫大目录。  
+2. 有验收就组合来源 A，避免纯代码。  
+3. 确认前允许并鼓励用户改正文分析稿。  
+4. 不要把公共 utils/common 当主扫描范围。  
+5. 摘录截断或范围不够时，缩小 path 多轮补扫，禁止扩成全仓。
+
 不得用设计稿覆盖文字需求；发现冲突时必须列为待确认项。
 
 ## 2. 输入结构化（阶段 2/5）— 全量模式

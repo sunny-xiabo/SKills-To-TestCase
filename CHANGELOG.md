@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
   - 确认稿增加「代码分析」「需求与代码差异」「输入完备性·代码」行
   - 准备文档增加「代码要素」；阶段 3 须覆盖已确认代码点
   - 增量 B2 同样支持代码/diff 作为变更输入
+  - 来源 I **推荐用法**（diff/小路径、A+I、确认前改稿、避开 utils、多轮补扫）
 
 ### Changed
 

@@ -146,6 +146,9 @@ class SkillContractTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
         self.assertIn("来源 I：代码", input_ref)
         self.assertIn("需求与代码差异", input_ref)
+        self.assertIn("来源 I 推荐用法", input_ref)
+        self.assertIn("优先 diff 或小路径", input_ref)
+        self.assertIn("来源 I 推荐用法", prompt)
 
 
 class ExcelPresentationTest(unittest.TestCase):
